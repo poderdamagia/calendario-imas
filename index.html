@@ -44,8 +44,9 @@
         <!-- A div solicitada com fundo branco -->
         <div class="caixa-medida-exata flex items-center justify-center overflow-hidden">
             
-            <!-- Linhas verticais amarelas (5 linhas internas, totalizando 7 com as bordas) -->
+            <!-- Linhas verticais amarelas (6 linhas internas, dividindo a largura em 7 colunas) -->
             <div class="absolute inset-0 flex justify-evenly pointer-events-none z-0">
+                <div class="w-[2px] h-full bg-yellow-400"></div>
                 <div class="w-[2px] h-full bg-yellow-400"></div>
                 <div class="w-[2px] h-full bg-yellow-400"></div>
                 <div class="w-[2px] h-full bg-yellow-400"></div>
@@ -64,8 +65,8 @@
                 <div class="w-full h-[2px] bg-blue-300"></div>
             </div>
 
-            <!-- Camada de células para o conteúdo (6 colunas x 8 linhas) -->
-            <div class="absolute inset-0 grid grid-cols-[repeat(6,1fr)] grid-rows-[repeat(8,1fr)] z-10 pointer-events-none">
+            <!-- Camada de células para o conteúdo (7 colunas x 8 linhas) -->
+            <div class="absolute inset-0 grid grid-cols-[repeat(7,1fr)] grid-rows-[repeat(8,1fr)] z-10 pointer-events-none">
                 <!-- Círculo vermelho perfeito na Coluna 1, Linha 2 -->
                 <div class="col-start-1 row-start-2 p-[2px] flex items-center justify-center">
                     <div class="h-full aspect-square bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
@@ -103,6 +104,13 @@
 
                 <!-- Círculo preto perfeito na Coluna 6, Linha 2 -->
                 <div class="col-start-6 row-start-2 p-[2px] flex items-center justify-center">
+                    <div class="h-full aspect-square bg-black rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                        S
+                    </div>
+                </div>
+
+                <!-- Círculo preto perfeito na Coluna 7 (sábado), Linha 2 -->
+                <div title="Sábado" class="col-start-7 row-start-2 p-[2px] flex items-center justify-center">
                     <div class="h-full aspect-square bg-black rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
                         S
                     </div>
