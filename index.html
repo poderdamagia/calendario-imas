@@ -19,6 +19,17 @@
             /* A borda sólida original foi removida para dar foco total à linha de bordado vermelha */
         }
 
+        .cabecalho-mes {
+            grid-column: 1 / -1;
+            grid-row: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-inline: 2mm;
+            font-weight: 700;
+            color: #000;
+        }
+
         /* Linhas de bordar (tracejado) encostadas na borda */
         .caixa-medida-exata::after {
             content: "";
@@ -67,6 +78,11 @@
 
             <!-- Camada de células para o conteúdo (7 colunas x 8 linhas) -->
             <div class="absolute inset-0 grid grid-cols-[repeat(7,1fr)] grid-rows-[repeat(8,1fr)] z-10 pointer-events-none">
+                <div class="cabecalho-mes">
+                    <span>janeiro</span>
+                    <span>2027</span>
+                </div>
+
                 <!-- Círculo vermelho perfeito na Coluna 1, Linha 2 -->
                 <div class="col-start-1 row-start-2 p-[2px] flex items-center justify-center">
                     <div class="h-full aspect-square bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
