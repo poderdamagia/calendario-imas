@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div em Centímetros</title>
+    <!-- Tailwind CSS para estilizar o fundo e centralizar o conteúdo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Classe personalizada usando as medidas exatas em centímetros */
+        .caixa-medida-exata {
+            width: 7.5cm;
+            height: 6.8cm;
+            background-color: #ffffff; /* Fundo branco */
+            position: relative; /* Necessário para alinhar as linhas internas */
+            
+            /* Adicionando uma leve sombra de borda apenas para destacar melhor a caixa */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            /* A borda sólida original foi removida para dar foco total à linha de bordado vermelha */
+        }
+
+        /* Linhas de bordar (tracejado) encostadas na borda */
+        .caixa-medida-exata::after {
+            content: "";
+            position: absolute;
+            top: 1px;
+            bottom: 1px;
+            left: 1px;
+            right: 1px;
+            border: 1px dashed red; /* Estilo tracejado (cor vermelha, espessura fina de 1px) */
+            pointer-events: none; /* Garante que não atrapalhe cliques no conteúdo interno */
+            z-index: 20; /* Garante que a linha de costura vermelha fique acima de tudo */
+        }
+    </style>
+</head>
+<body class="bg-slate-200 min-h-screen flex items-center justify-center font-sans antialiased p-4">
+
+    <div class="flex flex-col items-center space-y-6">
+        <!-- Título explicativo -->
+        <h1 class="text-xl font-medium text-slate-700 text-center">
+            Esta div tem exatamente <span class="font-bold">7,5cm de largura</span> e <span class="font-bold">6,8cm de altura</span>
+        </h1>
+        
+        <!-- A div solicitada com fundo branco -->
+        <div class="caixa-medida-exata flex items-center justify-center overflow-hidden">
+            
+            <!-- Linhas verticais amarelas (5 linhas internas, totalizando 7 com as bordas) -->
+            <div class="absolute inset-0 flex justify-evenly pointer-events-none z-0">
+                <div class="w-[2px] h-full bg-yellow-400"></div>
+                <div class="w-[2px] h-full bg-yellow-400"></div>
+                <div class="w-[2px] h-full bg-yellow-400"></div>
+                <div class="w-[2px] h-full bg-yellow-400"></div>
+                <div class="w-[2px] h-full bg-yellow-400"></div>
+            </div>
+
+            <!-- Linhas horizontais azuis claras (7 linhas internas, dividindo a altura em 8 espaços) -->
+            <div class="absolute inset-0 flex flex-col justify-evenly pointer-events-none z-0">
+                <div class="w-full h-[2px] bg-blue-300"></div>
+                <div class="w-full h-[2px] bg-blue-300"></div>
+                <div class="w-full h-[2px] bg-blue-300"></div>
+                <div class="w-full h-[2px] bg-blue-300"></div>
+                <div class="w-full h-[2px] bg-blue-300"></div>
+                <div class="w-full h-[2px] bg-blue-300"></div>
+                <div class="w-full h-[2px] bg-blue-300"></div>
+            </div>
+
+            <!-- Camada de células para o conteúdo (6 colunas x 8 linhas) -->
+            <div class="absolute inset-0 grid grid-cols-[repeat(6,1fr)] grid-rows-[repeat(8,1fr)] z-10 pointer-events-none">
+                <!-- Círculo vermelho perfeito na Coluna 1, Linha 2 -->
+                <div class="col-start-1 row-start-2 p-[2px] flex items-center justify-center">
+                    <div class="h-full aspect-square bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                        D
+                    </div>
+                </div>
+
+                <!-- Círculo preto perfeito na Coluna 2, Linha 2 -->
+                <div class="col-start-2 row-start-2 p-[2px] flex items-center justify-center">
+                    <div class="h-full aspect-square bg-black rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                        S
+                    </div>
+                </div>
+
+                <!-- Círculo preto perfeito na Coluna 3, Linha 2 -->
+                <div class="col-start-3 row-start-2 p-[2px] flex items-center justify-center">
+                    <div class="h-full aspect-square bg-black rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                        T
+                    </div>
+                </div>
+
+                <!-- Círculo preto perfeito na Coluna 4, Linha 2 -->
+                <div class="col-start-4 row-start-2 p-[2px] flex items-center justify-center">
+                    <div class="h-full aspect-square bg-black rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                        Q
+                    </div>
+                </div>
+
+                <!-- Círculo preto perfeito na Coluna 5, Linha 2 -->
+                <div class="col-start-5 row-start-2 p-[2px] flex items-center justify-center">
+                    <div class="h-full aspect-square bg-black rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                        Q
+                    </div>
+                </div>
+
+                <!-- Círculo preto perfeito na Coluna 6, Linha 2 -->
+                <div class="col-start-6 row-start-2 p-[2px] flex items-center justify-center">
+                    <div class="h-full aspect-square bg-black rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                        S
+                    </div>
+                </div>
+            </div>
+
+            <!-- Texto centralizado com fundo sutil para melhor leitura -->
+            <span class="text-slate-400 text-sm font-mono relative z-10 bg-white/90 px-2 py-0.5 rounded">7,5cm x 6,8cm</span>
+        </div>
+        
+        <p class="text-sm text-slate-500 max-w-md text-center">
+            Nota: O tamanho exibido na tela é uma aproximação baseada no DPI do monitor. Se você imprimir esta página (Ctrl+P), a caixa sairá com as medidas físicas exatas no papel.
+        </p>
+    </div>
+
+</body>
+</html>
